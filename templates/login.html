@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Oderman-login</title>
 </head>
 <body>
+{% include "base.html" %}
 <form action="http://localhost:8020/login/" method="post">
- <p>Name</p>
+ <p style="background-color: lightblue">Name</p>
 <p><input type="text" name="name"/></p>
- <p>Passworld</p>
+ <p style="background-color: lightblue">Passworld</p>
 <p><input type="password" name="password"/></p>
 <p><input type="submit" value="submit"/></p>
 </form>
