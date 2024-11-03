@@ -1,51 +1,28 @@
-<!DOCTYPE html
-<html lang="en"
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>oderman-menu</title>
- <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>{{menu}}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 {% include "base.html" %}
-<div style="text-align: center;">
-<caption><h1 style="background-color: lightblue">menu</h1></caption>
-</div>
- <table width =  "100%" border = "2"
-cellpadding = "3" cellspacing  = "2">
+    <div class="container mt-4">
+        <h1>{{ pizzas_name }}</h1>
+        <p>   maximum price: ${{ max_prise }}</p>
 
-<tr>
- <th>name</th>
-<th>composition</th>
- <th>price </th>
-</tr>
-<tr>
- <td>Hawaiian Pizza</td>
-<td> ham,pineapple,tomato sauce,ham</td>
- <td> $20 </td>
- </tr>
- <tr>
- <td> Pepperoni Pizza </td>
-<td>Tomato sauce, mozzarella cheese, and pepperoni.</td>
-  <td>$20 </td>
- </tr>
-<tr>
- <td>Margherita Pizza</td>
- <td> Fresh mozzarella, tomato sauce,and basil. </td>
-<td>$20 </td>
- </tr>
+        <ul class="list-group">
+            {% for pizza in Pizzas|sort(attribute="price") %}
+                <li class="list-group-item">
+                    <h5>{{ pizza.name }} - ${{ pizza.price }}</h5>
+                    <p>ingredients : {{ pizza.composition }}</p>
 
-<tr>
-<td>Meat Lover's Pizza</td>
- <td>Tomato sauce, mozzarella cheese, pepperoni, sausage, bacon, and ham</td>
-<td>$20</td>
-</tr>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 
-  <tr>
-<td>White Pizza</td>
- <td>Mozzarella cheese, ricotta cheese, garlic, and spinach.</td>
-   <td>$20 </td>
- </tr>
-</table>
-{% include "footer.html" %}
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-nhFLHeN8Y2Y+eB+hUQvElIMR9IwXcD7j9ufufBFVvKxAMmvvmf5J+23lIw60Sa8A" crossorigin="anonymous"></script>
+</body>
+</html>
