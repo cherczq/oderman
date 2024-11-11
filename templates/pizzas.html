@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizza Menu</title>
+</head>
+<body>
+<h1>Pizza Menu</h1>
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+
+<table style="width:100%">
+    <tr>
+        <th>Name</th>
+        <th>Ingredients</th>
+        <th>Price</th>
+    </tr>
+    {% for pizza in data %}
+    <tr>
+        <td>{{ pizza[0] }}</td>
+        <td>{{ pizza[1] }}</td>
+        <td>${{ pizza[2] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
